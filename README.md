@@ -10,3 +10,4 @@ class HelloWorld {
     }
 }
 ```
+Finished 1st week assignments, some of the problems from URI were challenging.
