@@ -1,7 +1,7 @@
 package com.nurlan.pojo;
 import java.util.*;
 //For purchases information about customer, price it was sold etc.
-public class Purchases {
+public class Purchase {
     private Integer id;
     private Integer customerId;
 
@@ -61,7 +61,7 @@ public class Purchases {
 
     @Override
     public String toString() {
-        return "Purchases{" +
+        return "Purchase{" +
                 "id=" + id +
                 ", customerId=" + customerId +
                 ", carId=" + carId +
