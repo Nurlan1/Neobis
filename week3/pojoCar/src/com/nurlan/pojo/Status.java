@@ -20,4 +20,12 @@ public class Status {
     }
 
     private String Name;
+
+    @Override
+    public String toString() {
+        return "Status{" +
+                "id=" + id +
+                ", Name='" + Name + '\'' +
+                '}';
+    }
 }
