@@ -1,6 +1,6 @@
 package com.nurlan.pojo;
-// For car make like Toyota, Mercedes
-public class Make {
+// for car's body type(Suv,Sedan,Hatchback,Truck,Coupe,Minivan,Wagon,Convertible)
+public class Type {
     private Integer id;
     private String name;
 
@@ -22,7 +22,7 @@ public class Make {
 
     @Override
     public String toString() {
-        return "Make{" +
+        return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
