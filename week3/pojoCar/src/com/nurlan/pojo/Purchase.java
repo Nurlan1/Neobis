@@ -8,7 +8,7 @@ public class Purchase {
     private Integer carId;
 
     private Date date;
-    private Status statusId;
+    private Integer statusId;
     private Double price;
 
     public Integer getId() {
@@ -43,11 +43,11 @@ public class Purchase {
         this.date = date;
     }
 
-    public Status getStatusId() {
+    public Integer getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(Status statusId) {
+    public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
 

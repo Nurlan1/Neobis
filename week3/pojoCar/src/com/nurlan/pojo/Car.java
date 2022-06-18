@@ -2,8 +2,39 @@ package com.nurlan.pojo;
 //Selling prouduct information in this case it's a CAR(automobile)
 public class Car {
     private Integer id;
-    private Model model;
+    private Integer modelId;
     private String vin;
+    private Integer type;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getModelId() {
+        return modelId;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", modelId=" + modelId +
+                ", vin='" + vin + '\'' +
+                ", type=" + type +
+                ", color='" + color + '\'' +
+                ", statusId=" + statusId +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public void setModelId(Integer modelId) {
+        this.modelId = modelId;
+    }
 
     public String getColor() {
         return color;
@@ -15,7 +46,7 @@ public class Car {
 
     private String color;
 
-    private Status status;
+    private Integer statusId;
     public Integer getPrice() {
         return price;
     }
@@ -34,13 +65,7 @@ public class Car {
         this.id = id;
     }
 
-    public Model getModel() {
-        return model;
-    }
 
-    public void setModel(Model model) {
-        this.model = model;
-    }
 
     public String getVin() {
         return vin;
@@ -50,12 +75,12 @@ public class Car {
         this.vin = vin;
     }
 
-    public Status getStatus() {
-        return status;
+    public Integer getStatus() {
+        return statusId;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(Integer status) {
+        this.statusId = status;
     }
 
     public String getDescription() {
@@ -69,16 +94,4 @@ public class Car {
     private String description;
 
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", model=" + model +
-                ", vin='" + vin + '\'' +
-                ", color='" + color + '\'' +
-                ", status=" + status +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

@@ -4,17 +4,19 @@ public class Model {
     private Integer id;
     private String Name;
 
-    private Make make;
+    private Integer makeId;
 
-    public Make getMake() {
-        return make;
+    @Override
+    public String toString() {
+        return "Model{" +
+                "id=" + id +
+                ", Name='" + Name + '\'' +
+                ", makeId=" + makeId +
+                '}';
     }
 
-    public void setMake(Make make) {
-        this.make = make;
-    }
-    public void setMakeId(Make makeId) {
-        this.make = make;
+    public void setMakeId(Integer makeId) {
+        this.makeId = makeId;
     }
 
 
