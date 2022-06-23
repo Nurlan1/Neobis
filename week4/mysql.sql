@@ -1,18 +1,18 @@
 create table type(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     name varchar(100) not null,
     primary key(id));
 create table status(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     name varchar(100) not null,
     primary key(id));
 create table make(
-  id int not null,
+  id int not null AUTO_INCREMENT,
   primary key(id),
   name varchar(30)
 );
 create table model(
-  id int not null,
+  id int not null AUTO_INCREMENT,
   name varchar(50) not null,
   primary key(id),
   makeId int not null,
@@ -20,7 +20,7 @@ create table model(
     references make(id)
 );
 create table car(
-  id int not null,
+  id int not null AUTO_INCREMENT,
   primary key(id),
   modelId INT not null,
     foreign key (modelId)
@@ -37,7 +37,7 @@ create table car(
     references type(id)
 );
 create table customer(
-  id INT not null,
+  id INT not null AUTO_INCREMENT,
   firstName varchar(50) not null,
   lastName varchar(50),
   phoneNumber varchar(15),
@@ -45,7 +45,7 @@ create table customer(
   primary key(id)
 );
 create table purchase(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     customerId INT not null,
     foreign key (customerId)
       references customer(id),
