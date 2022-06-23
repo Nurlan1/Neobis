@@ -13,6 +13,7 @@ public class DatabaseConfig {
 //            addDataToDB("Kasym","Usonov","0777777778","Kyrgyzstan,Osh, Datka 12");
 //            editCustomerFirstName("Nurlanbek","Nurlan");
 //            deleteCustomer("Kasym");
+            getDataFromDB();
 
             crunchifyPrepareStat.close();
             connection.close();
@@ -92,6 +93,7 @@ public class DatabaseConfig {
             String getQueryStatement ="Select * from customer";
             crunchifyPrepareStat = connection.prepareStatement(getQueryStatement);
             ResultSet rs=crunchifyPrepareStat.executeQuery();
+            System.out.println("\n---------- Let's get Data from DB ----------");
             while (rs.next()){
                 System.out.format("%s, %s, %s, %s\n",rs.getString("firstName"),rs.getString("lastName"),rs.getString("phoneNumber"),rs.getString("address"));
             }

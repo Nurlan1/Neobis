@@ -1,0 +1,13 @@
+4 methods to test JDBC manipulating table 'customer':
+inserting cutomer's data
+   addDataToDB(String firstName, String lastName, String phoneNumber, String address) 
+updating 
+   editCustomerFirstName(String firstName,String newName) 
+deleting by customername
+   deleteCustomer(String firstName)
+printig customer table
+   getDataFromDB();
+
+All the methods can be called from main method in the path(src/main/java/org.example.dao.DatabaseConfig.java)
+You can comment the method calls in order to call them one by one, all logs  with  will printed in console. 
+
