@@ -1,13 +1,6 @@
-package com.example.demo.author;
-
-import com.example.demo.book.Book;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.example.demo.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="Author")
@@ -47,4 +40,7 @@ public class Author {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
 }

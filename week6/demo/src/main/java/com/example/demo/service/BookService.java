@@ -1,9 +1,11 @@
-package com.example.demo.book;
+package com.example.demo.service;
 
-import com.example.demo.author.Author;
-import com.example.demo.author.AuthorRepository;
-import com.example.demo.category.Category;
-import com.example.demo.category.CategoryRepository;
+import com.example.demo.repository.BookRepository;
+import com.example.demo.entity.Author;
+import com.example.demo.repository.AuthorRepository;
+import com.example.demo.entity.Book;
+import com.example.demo.entity.Category;
+import com.example.demo.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,16 +29,21 @@ public class BookService {
     public List<Book> getBooks(){
         return bookRepository.findAll() ;}
 
-    public void addNewBook(Book book) {
-        Author authorOptitonal= authorRepository.findByName(book.getAuthor().getName());
-        Category categoryOptional = categoryRepository.findByName(book.getCategory().getName());
+    public Optional<Book> getBookById(Long bookId) {
+        return bookRepository.findById(bookId);
+    }
 
-        System.out.println(authorOptitonal);
-        book.setAuthor(Objects.requireNonNullElseGet(authorOptitonal, () -> new Author(book.getAuthor().getName())));
-        book.setCategory(Objects.requireNonNullElseGet(categoryOptional, () -> new Category(book.getCategory().getName())));
+    public void addNewBook(Book book) {
+        Author authorOptional= Optional.ofNullable(authorRepository.findByName(book.getAuthor().getName())).orElse(new Author(book.getAuthor().getName()));
+        Category categoryOptional = Optional.ofNullable(categoryRepository.findByName(book.getCategory().getName())).orElse(new Category(book.getCategory().getName()));
+        book.setAuthor(authorOptional);
+        book.setCategory(categoryOptional);
         bookRepository.save(book);
     }
 
+    public void updateBook(Book book) {
+        bookRepository.save(book);
+    }
 
     public void deleteBook(Long bookId) {
         boolean exists =bookRepository.existsById(bookId);
@@ -47,11 +54,4 @@ public class BookService {
 
     }
 
-    public Optional<Book> getBookById(Long bookId) {
-        return bookRepository.findById(bookId);
-    }
-
-    public void updateBook(Book book) {
-        bookRepository.save(book);
-    }
 }

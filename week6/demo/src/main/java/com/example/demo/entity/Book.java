@@ -1,11 +1,7 @@
-package com.example.demo.book;
+package com.example.demo.entity;
 
-import com.example.demo.author.Author;
-import com.example.demo.category.Category;
-import com.fasterxml.jackson.annotation.JsonTypeId;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.stereotype.Component;
+import com.example.demo.entity.Author;
+import com.example.demo.entity.Category;
 
 import javax.persistence.*;
 
