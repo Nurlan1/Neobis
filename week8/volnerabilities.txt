@@ -1,0 +1,2 @@
+1 Have found some valnerabilities while inserting and deleting actions with entities with relationships
+2 Encoded the passwords of users
