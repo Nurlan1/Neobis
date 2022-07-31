@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Category;
+import com.example.demo.entity.Author;
+import com.example.demo.entity.Book;
+import com.example.demo.entity.Customer;
+import com.example.demo.entity.Purchase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,55 +21,49 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
-public class CategoryControllerIntegrationTest {
+class PurchaseControllerIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
-
     private ObjectMapper mapper;
-
-    public CategoryControllerIntegrationTest(){
+    public PurchaseControllerIntegrationTest(){
         mapper = new ObjectMapper();
     }
+
     @Test
-    void getAllCategories() throws Exception {
-        mockMvc.perform( get("/category"))
+    void getAllPurchases() throws Exception {
+        mockMvc.perform(get("/purchase"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
     @Test
-    void addCategory() throws Exception {
-        Category category = new Category("Ecology");
-        String jsonRequest = mapper.writeValueAsString(category);
-        mockMvc.perform( post("/category")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonRequest))
+    void addPurchase() throws Exception {
+
+        Purchase purchase=new Purchase(1,null ,new Customer("Erlan","123456","Bishkek"),new Book("Intorduction to ...",2000.00,"For IT",new Author("Nurik")) );
+//        purchase.setId(64L);
+        String jsonRequest=mapper.writeValueAsString(purchase);
+        mockMvc.perform(post("/purchase")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonRequest))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
     @Test
-    void getCategoryById() throws Exception {
-        mockMvc.perform(get("/category/{id}", 13))
+    void findPurchaseById() throws Exception {
+        mockMvc.perform(get("/purchase/58"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
     @Test
-    void updateCategory() throws Exception {
-        Category category = new Category("Other");
-        String jsonRequest = mapper.writeValueAsString(category);
-        mockMvc.perform( put("/category/28")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonRequest))
-                .andDo(print())
-                .andExpect(status().isOk());
+    void updatePurchase() {
 
     }
 
     @Test
-    void deleteCategory() throws Exception {
-        mockMvc.perform( delete("/category/57"))
+    void deletePurchase() throws Exception {
+        mockMvc.perform(delete("/purchase/58"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
