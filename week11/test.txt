@@ -1,0 +1,66 @@
+POST localhost:8080/register
+
+Body->raw->JSON
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+Response: OK, 200 OK
+
+
+
+POST localhost:8080/auth
+
+Body->raw->JSON
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+Response: {
+              "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjYxMjEyODAwfQ.UaV6hwkc-4FMIOTSCt7aAZpviZ9lugEEbXFMk2VqJsSoBgNquBsO2HY35d0Wb1D9WQbLBAH5qtrKiw0Y2Pi-3A"
+          }, 200 OK
+
+
+
+POST http://localhost:8080/book
+
+Body->raw->JSON
+
+{
+    "name":"Cracking the coding intetview",
+    "price": 1400.00,
+    "description":"For developers",
+    "author":"Leonard"
+    ,"category":"SE"
+}
+
+Response: 200 OK
+
+
+
+GET http://localhost:8080/book
+
+Bearer token
+Token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjYxMjEyODAwfQ.UaV6hwkc-4FMIOTSCt7aAZpviZ9lugEEbXFMk2VqJsSoBgNquBsO2HY35d0Wb1D9WQbLBAH5qtrKiw0Y2Pi-3A
+
+Response:
+
+[
+    {
+        "id": 2,
+        "name": "Hello world",
+        "price": 1400.0,
+        "description": "For developers",
+        "author": {
+            "id": 3,
+            "name": "Leonard"
+        },
+        "category": {
+            "name": "Introduction SE"
+        }
+    }
+], 200 OK
