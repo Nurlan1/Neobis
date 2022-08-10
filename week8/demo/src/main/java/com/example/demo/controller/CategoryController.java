@@ -11,11 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/API documentation for book store\n" +
-        "1.\tGets all the books that list with data\n" +
-        "2.\tGET /api/v1/book\n" +
-        "3.\tNone\n" +
-        "4.\tList of books and information \n")
+@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired

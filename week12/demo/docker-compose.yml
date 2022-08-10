@@ -1,0 +1,23 @@
+version: "2.1"
+services:
+  springboot-app:
+    container_name: spring-app
+    restart: always
+    image: springbooot-app
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/bookdb1
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1111
+
+  mysqldb:
+      container_name: mysqldb
+      image: mysql
+      ports:
+        - 3307:3306
+      environment:
+        MYSQL_DATABASE: bookdb1
+        MYSQL_ROOT_PASSWORD: 1111

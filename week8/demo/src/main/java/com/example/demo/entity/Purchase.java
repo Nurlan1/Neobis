@@ -18,11 +18,18 @@ public class Purchase {
     @JoinColumn(name="book_id")
     private Book book;
 
+    public Purchase() {
+    }
+
     public Purchase(Integer quanity, LocalDate date, Customer customer, Book book) {
         this.quantity = quantity;
         this.date = date;
         this.customer = customer;
         this.book = book;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
